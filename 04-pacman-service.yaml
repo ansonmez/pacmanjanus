@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: pacman
+  name: pacman
+  namespace: pacman2
+  annotations:
+    skupper.io/address: pacman
+    skupper.io/port: "8080"
+    skupper.io/proxy: http
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: pacman
+  sessionAffinity: None
+  type: ClusterIP
