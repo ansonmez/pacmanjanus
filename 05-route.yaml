@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: pacman2
+  namespace: pacman2
+  labels:
+    app: pacman
+spec:
+  to:
+    kind: Service
+    name: pacman
